@@ -1,0 +1,58 @@
+1--HECHO EL CRUD EN EL REPOSITORIO
+
+Franco tenés que 
+Clonar el siguiente repositorio:
+
+https://github.com/matiasruizcheylat/trabajo4.git
+
+
+
+El mismo es un Crud de usuarios
+-Tiene una tabla con Read de usuarios y sus detalles
+-Se pueden agregar usuarios nuevos (con userName único)
+-Se pueden editar los datos menos su password y ussername.
+-Se pueden borrar
+Trabaja con un frontend de archivos .ejs
+
+
+
+Para que el proyecto funcione debe tener instalado lo siguiente::
+
+npm install
+
+instalar dependencias  (en realidad no uso todas ellas pero en el momento de desarrollo me parecian suficientes):
+npm i -g nodemon
+npm install -s sequelize-cli sequelize pg pg-hstore express express-myconnection ejs jsonwebtoken cors
+npm install mocha chai --save-dev
+
+
+La BD está integrada en heroku  hay que configurar el .env con lo siguiente:
+
+.env  
+""""""""""""""""""""""
+NODE_ENV=development
+PORT="3000"
+DATABASE_URL='postgres://kjbgdzbfrgqpuk:24cd6bd397b25066d8bdd7d842972f57b9af6ed6866149421f978f45b8a45a3f@ec2-44-194-112-166.compute-1.amazonaws.com:5432/d25id0qn389430'
+"""""""""""""""""""""
+
+
+Con todo ello ir probando el trabajo4  (no hace falta estar logueado para el mismo   todo el resto (login, jwt, Task) es parte del tp FINAL)
+
+
+
+
+EJERCICIO 2: 
+2.     Explique con sus palabras porque se usa JWT y no otros mecanismos de seguridad en las API REST.
+
+Para mi personalmente en base a lo que leí es relativo utilizar mecanismos de seguridad. JWT es especial en el sentido que le da al usuario un Token
+el cual es una cadena de caracteres que pueden codificarse para obtener información más específica de dicho cliente registrado.
+Este JWT tiene un tiempo de vida asignado y depende del mismo y de cómo esté implementado en la aplicación que le permita al usuario acceder a determinadas rutas del sitio. 
+Lo que lo hace especial es que se le da peso al cliente (se lo delega) en cuanto a su información en el token y el servidor se desatiende de ello (digamos solamente codifica dicho JWT respecto a la info de BD de ese usuario si alojada en el servidor y en base a ello dice si tiene acceso a una ruta específica o bien le dice que no tiene token asignado informando un error ...).Otra cosa es que previene de CSRF cosa que las cookies no podían.
+
+
+
+
+3.     Escriba dos tests unitarios utilizando la biblioteca que prefiera para comprobar los endpoints (elegir 2) creados en el punto 1
+
+Hechos 4 test. 2 para Read  1 para Create y el último delete el create previo.
+Más detalles en runTest.js junto al index.js principal.

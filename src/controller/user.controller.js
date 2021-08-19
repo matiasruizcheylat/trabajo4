@@ -10,9 +10,9 @@ const getUsers = async (req, res) => {
 
   const users = await model.User.findAll();
    const { username } = req.params;
- return  res.render('../views/tablaUsers',{users, mensajeExitoso:mensajeExitoso} );
+   res.render('../views/tablaUsers',{users, mensajeExitoso:mensajeExitoso} );
 
-// mensajeExitoso='';
+  mensajeExitoso='';
  //return res.status(200).json({ users });
 };
 
