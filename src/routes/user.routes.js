@@ -9,11 +9,11 @@ const {
   formUsersM,
   getOneUserByName,
 } = require("../controller/user.controller");
-const { authJwt } = require("../middleware");
+
 
 router.get("/", getUsers);
 router.get("/alta", formUsersA);
-router.get("/:firstName", getOneUserByName);
+router.get("/:username", getOneUserByName);
 router.get("/detalle/:id",getDetailUser);
 
 router.post("/agregando", addUser);
